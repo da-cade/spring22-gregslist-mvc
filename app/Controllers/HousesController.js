@@ -1,9 +1,11 @@
 import { ProxyState } from "../AppState.js";
 import { getHouseForm } from "../components/HouseForm.js";
-
+import { housesService } from "../Services/HousesService.js";
+import { Pop } from "../Utils/Pop.js"
 
 function _drawHouses() {
-  let houseCardsTemplate = 'TODO'
+  let houseCardsTemplate = ''
+  ProxyState.houses.forEach(house => houseCardsTemplate += house.HouseTemplate)
   document.getElementById('listings').innerHTML = `
     <div class="row houses">
       ${houseCardsTemplate}
@@ -24,15 +26,25 @@ export class HousesController {
     // DO THIS like always
     try {
       event.preventDefault()
-      debugger
+      /**@type {HTMLFormElement} */
+      // @ts-ignore
       const formElem = event.target
       const formData = {
-        // TODO YOUR JOB NOT MINE
+        sellerName: formElem.sellerName.value,
+        address: formElem.address.value,
+        type: formElem.type.value,
+        bedrooms: formElem.bedrooms.value,
+        bathrooms: formElem.bathrooms.value,
+        sqFt: formElem.sqFt.value,
+        price: formElem.price.value,
+        yearBuilt: formElem.yearBuilt.value,
+        description: formElem.description.value,
       }
+      housesService.addHouse(formData)
       console.log({ formData })
 
     } catch (error) {
-      // show this to the user
+      Pop.error(error.message) 
     }
   }
 

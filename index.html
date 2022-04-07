@@ -26,7 +26,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <div id="listings"></div>
+          <div id="listings">
+            <!-- new cards go here -->
+          </div>
         </div>
       </div>
     </div>
@@ -43,7 +45,7 @@
       <ul class="list-group p-5 bg-danger" data-bs-dismiss="offcanvas">
         <li class="list-group-item nav-link" onclick="app.carsController.drawCars()">Cars</li>
         <li class="list-group-item nav-link" onclick="app.housesController.drawHouses()">Houses</li>
-
+        <li class="list-group-item nav-link" onclick="app.jobsController.drawJobs()">Jobs</li>
       </ul>
     </div>
   </div>
@@ -56,8 +58,12 @@
           <h5 class="modal-title" id="add-listing-modal-label">Add Car</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" id="listing-modal-form-slot">
-
+        <div class="modal-body">
+          <div class="container-fluid" id="listing-modal-form-slot">
+            <div class="row">
+              <!-- Forms drawn here -->
+            </div>
+          </div>
         </div>
       </div>
     </div>

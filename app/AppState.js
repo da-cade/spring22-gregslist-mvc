@@ -1,9 +1,38 @@
 import { Car } from "./Models/Car.js"
+import { House } from "./Models/House.js"
+import { Job } from "./Models/Job.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
-  houses = []
+  /** @type {import('./Models/Job').Job[]} */
+  jobs = [
+    new Job({
+      jobTitle: "Elbow Greaser",
+      salaryType: "hourly",
+      salary: .35,
+      phone: 2088512142, 
+      email: "drybonesmisery@hotmail.com",
+      company: "That Squid Game Company",
+      location: "South Korea",
+      description: "College degree required, Masters preferred."
+    })
+  ]
+
+  /** @type {import('./Models/House').House[]} */
+  houses = [
+    new House({
+      sellerName: "P. Sherman",
+      address: "42 Wallaby Way",
+      type: "condo",
+      bedrooms: 2,
+      bathrooms: 1,
+      sqFt: 1120,
+      price: 430000,
+      yearBuilt: 1987,
+      description: "Haunted by fish ghosts, I think."})
+  ]
+  
   /** @type {import('./Models/Car').Car[]} */
   cars = [
     new Car({
